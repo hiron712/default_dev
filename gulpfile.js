@@ -15,7 +15,7 @@ var pug = require("gulp-pug");
 
 gulp.task('scss', function(){
     //ここからタスクの内容
-    gulp.src('htdocs/sass/*.scss')
+    return gulp.src('htdocs/sass/*.scss')
         .pipe(changed('htdocs/sass/*.scss'))
         .pipe(compass({
             style: 'compressed',
@@ -34,7 +34,7 @@ gulp.task('scss', function(){
 
 
 gulp.task('stylus', function() {
-    gulp.src(['htdocs/stylus/**/*.styl','!htdocs/stylus/**/_*.styl'])
+    return gulp.src(['htdocs/stylus/**/*.styl','!htdocs/stylus/**/_*.styl'])
         .pipe(stylus({
             compress: true
         }))
@@ -47,8 +47,8 @@ gulp.task('stylus', function() {
 });
 
 
-gulp.task('script', function() {
-    gulp.src('htdocs/script/**/*.js')
+gulp.task('babel', function() {
+    return gulp.src('htdocs/script/**/*.js')
         .pipe(plumber())
         .pipe(concat('script.js'))
         .pipe(babel({ "presets":["@babel/preset-env"] }))
