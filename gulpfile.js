@@ -59,7 +59,7 @@ gulp.task('babel', function() {
 });
 
 
-gulp.task('pug', function buildHTML() {
+gulp.task('pug', function () {
     return gulp.src( ['./htdocs/pug/**/*.pug', '!./htdocs/pug/**/_*.pug'])
         .pipe(pug({
             pretty: true
