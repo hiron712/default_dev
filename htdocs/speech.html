@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1 tabindex="0">タイトル</h1>
+<a href="#">クリスマスにはサンタさん<br>来てくれるかな？</a><br>
+<h2 tabindex="0">タイトル2</h2>
+<a href="#">1,234円 5,678円</a>
+
+<div>
+  音量<input type="range" class="volume" min="0" max="100">
+</div>
+
+<div>
+  速さ<input type="range" class="rate" min="0.5" max="1.5" step="0.1">
+</div>
+
+<script>
+  function setItem(item){
+      var ssu = new SpeechSynthesisUtterance();
+
+      item.addEventListener('focus',function(){
+          var vol = document.querySelector('.volume').value;
+          ssu.volume = vol/100;
+
+          var rate = document.querySelector('.rate').value;
+          ssu.rate = rate;
+
+          ssu.text = this.textContent;
+          ssu.lang = 'ja-JP';
+          speechSynthesis.speak(ssu);
+          return false;
+      },false);
+
+      item.addEventListener('blur',function(){
+          speechSynthesis.cancel();
+      },false);
+  }
+
+  function init(){
+      speechSynthesis.cancel();
+
+      var list = document.querySelectorAll('a,[tabindex]');
+
+      for(var prop in list){
+          if(typeof list[prop] === 'object'){
+              console.log(list[prop]);
+              setItem(list[prop]);
+          }
+      }
+
+      window.addEventListener('blur',function(){
+          console.log('blur');
+          speechSynthesis.cancel();
+      },false);
+
+  }
+
+  if('SpeechSynthesisUtterance' in window){
+      window.addEventListener('load',init,false);
+  }else{
+      console.log('SpeechSynthesisUtterance not work');
+  }
+
+</script>
+
+</body>
+</html>
