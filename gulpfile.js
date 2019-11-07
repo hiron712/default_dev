@@ -93,6 +93,20 @@ gulp.task('babel2', function() {
         .pipe(uglify())
         .pipe(gulp.dest('htdocs/js'));*/
 
+    //gulp.task('imageedit', function(){
+    //    var testFiles = glob.sync(jspath + '/imageedit/**/*.js');
+    //    return browserify({
+    //        entries: testFiles
+    //    })
+    //        .transform(babelify, {presets: ['@babel/preset-env']})
+    //        .bundle()
+    //        .pipe(source('staf.imageedit.min.js'))
+    //        .pipe(buffer())
+    //        .pipe(uglify())
+    //        .pipe(plumber())
+    //        .pipe(gulp.dest(outpath + '/js'));
+    //});
+
 });
 
 
