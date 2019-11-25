@@ -1,1 +1,11 @@
-body{opacity:.7;display:-webkit-box;display:-ms-flexbox;display:flex}
+body{
+	opacity:0.5;
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-ms-flex-line-pack:center;
+	align-content:center;
+	-webkit-box-pack:justify;
+	-ms-flex-pack:justify;
+	justify-content:space-between
+}

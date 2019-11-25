@@ -15,6 +15,7 @@ const uglify = require("gulp-uglify-es").default;
 var rename = require('gulp-rename');
 var babel = require('gulp-babel');
 var pug = require("gulp-pug");
+var ejs = require("gulp-ejs");
 
 var browserify = require('browserify');
 var babelify = require('babelify');
@@ -63,20 +64,6 @@ gulp.task('stylus', function() {
 
 /*-------------------------------------------------
 --------------------------------------------------*/
-//gulp.task('babel', function() {
-//    return gulp.src('resources/script/**/*.js')
-//        .pipe(plumber())
-//        .pipe(concat('script.js'))
-//        .pipe(babel({
-//            "presets":["@babel/preset-env"] ,
-//            "plugins":["@babel/plugin-transform-modules-commonjs"]
-//        }))
-//        .pipe(rename({suffix: '.min'}))
-//        .pipe(uglify())
-//        .pipe(gulp.dest('htdocs/js'));
-//});
-
-
 gulp.task('babel', function() {
     var scriptFiles = glob.sync('resources/script/**/*.js');
     return browserify({
@@ -100,7 +87,14 @@ gulp.task('pug', function () {
         }))
         .pipe(gulp.dest('./htdocs'))
 });
-
+/*-------------------------------------------------
+--------------------------------------------------*/
+gulp.task( "ejs", function () {
+    return gulp.src(["./resources/ejs/**/*.ejs", '!' + "./resources/ejs/**/_*.ejs"])
+        .pipe(ejs())
+        .pipe(rename({ extname: '.html' }))
+        .pipe( gulp.dest( "./htdocs" ) );
+});
 /*-------------------------------------------------
 --------------------------------------------------*/
 gulp.task('watch', function(){
