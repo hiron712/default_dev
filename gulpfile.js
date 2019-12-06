@@ -64,7 +64,7 @@ gulp.task('stylus', function() {
 /*-------------------------------------------------
 --------------------------------------------------*/
 gulp.task('babel', function() {
-    var scriptFiles = glob.sync('resources/script/**/*.js');
+    var scriptFiles = glob.sync('resources/script/**/*.js', '!./resources/script/**/_*.js');
     return browserify({
         entries: scriptFiles
     })
@@ -99,4 +99,7 @@ gulp.task( "ejs", function () {
 gulp.task('watch', function(){
     gulp.watch( 'resources/sass/**/*.scss', gulp.task('scss'));
     gulp.watch( 'resources/stylus/**/*.styl', gulp.task('stylus'));
+    gulp.watch( 'resources/pug/**/*.pug', gulp.task('pug'));
+    gulp.watch( 'resources/ejs/**/*.ejs', gulp.task('ejs'));
+    gulp.watch( 'resources/script/**/*.js', gulp.task('babel'));
 });

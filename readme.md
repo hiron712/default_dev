@@ -5,20 +5,20 @@
 
 Node.js npm Gulpで各種コンパイルが出来るようにする。
 
-###スタイルシート
+### スタイルシート
 
 SCSS => css
 
 Stylus => css
 
-###HTML
+### HTML
 pug => html
 
 ejs => html
 
-##前提条件
+## 前提条件
 
-###下記がインストールされていること
+### 下記がインストールされていること
 
 ruby
 

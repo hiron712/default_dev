@@ -1,10 +1,10 @@
 import * as lib from '../lib/lib.js';
 
-var $ = require('jquery');
+let $ = require('jquery');
 
-$(window).on('load',function(){
-    console.log(lib.square(13));
-    this.console.log('load');
+$(window).on('load',()=>{
+    console.log(lib.square(122));
+    console.log('load');
 });
 
 
