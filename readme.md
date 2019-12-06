@@ -1,5 +1,22 @@
 # 基本コーディング環境設定
 
+
+## 概要
+
+Node.js npm Gulpで各種コンパイルが出来るようにする。
+
+###スタイルシート
+
+SCSS => css
+
+Stylus => css
+
+###HTML
+pug => html
+
+ejs => html
+
+
 ## SCSS変換
 
 ```
@@ -12,14 +29,20 @@ npm run gulp scss
 npm run gulp stylus
 ```
 
-## babel変換
-
-```
-npm run gulp babel
-```
-
 ## pug変換
 
 ```
 npm run gulp pug
+```
+
+## ejs変換
+```
+npm run gulp ejs
+```
+
+
+## babel変換
+
+```
+npm run gulp babel
 ```
