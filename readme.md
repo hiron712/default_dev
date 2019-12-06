@@ -16,6 +16,15 @@ pug => html
 
 ejs => html
 
+##前提条件
+
+###下記がインストールされていること
+
+ruby
+
+node.js
+
+compass
 
 ## SCSS変換
 

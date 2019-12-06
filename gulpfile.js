@@ -31,7 +31,6 @@ var glob = require("glob");
 gulp.task('scss', function(){
     //ここからタスクの内容
     return gulp.src('resources/sass/*.scss')
-        //.pipe(changed('resources/sass/*.scss'))
         .pipe(compass({
             style: 'compressed',
             sourcemap: false,
