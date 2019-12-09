@@ -1,30 +1,34 @@
-var gulp = require('gulp');
-var compass = require('gulp-compass');
-var changed = require('gulp-changed');
-var postcss = require("gulp-postcss");
-var autoprefixer = require('autoprefixer');
+const gulp = require('gulp'); //タスクランナー
 
-var stylus = require('gulp-stylus');
+const compass = require('gulp-compass'); //SCSS変換用
+const stylus = require('gulp-stylus'); //Stylus変換用
+const pug = require("gulp-pug"); //Pug変換用
+const ejs = require("gulp-ejs"); //ejs変換用
 
-var plumber = require("gulp-plumber");
-var concat = require("gulp-concat");
-
-//var uglify = require('gulp-uglify');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 const uglify = require("gulp-uglify-es").default;
 
-var rename = require('gulp-rename');
-var babel = require('gulp-babel');
-var pug = require("gulp-pug");
-var ejs = require("gulp-ejs");
+const postcss = require("gulp-postcss");
+const autoprefixer = require('autoprefixer');
+const cssSorter = require('css-declaration-sorter');
+const mqpacker = require("css-mqpacker");
 
-var browserify = require('browserify');
-var babelify = require('babelify');
+const plumber = require("gulp-plumber");
+const rename = require('gulp-rename');
+const glob = require("glob");
 
-var source     = require('vinyl-source-stream');
-
-var buffer = require('vinyl-buffer');
-
-var glob = require("glob");
+const plugin = [
+    autoprefixer({
+        cascade: false
+    }),
+    cssSorter({
+        order: 'smacss'
+    }),
+    mqpacker()
+];
 
 /*-------------------------------------------------
 --------------------------------------------------*/
@@ -38,11 +42,7 @@ gulp.task('scss', function(){
             css: 'htdocs/assets/css/',//吐き出すcssのフォルダ場所
             sass: 'resources/sass/'//sassファイルの場所
         }))
-        .pipe(postcss([
-            autoprefixer({
-                cascade: false
-            })
-        ]))
+        .pipe(postcss(plugin))
         .pipe(gulp.dest('htdocs/assets/css/'));
 });
 
@@ -53,11 +53,7 @@ gulp.task('stylus', function() {
         .pipe(stylus({
             compress: true
         }))
-        .pipe(postcss([
-            autoprefixer({
-                cascade: false
-            })
-        ]))
+        .pipe(postcss(plugin))
         .pipe(gulp.dest('htdocs/assets/css/'));
 });
 
@@ -89,7 +85,7 @@ gulp.task('pug', function () {
 /*-------------------------------------------------
 --------------------------------------------------*/
 gulp.task( "ejs", function () {
-    return gulp.src(["./resources/ejs/**/*.ejs", '!' + "./resources/ejs/**/_*.ejs"])
+    return gulp.src(["./resources/ejs/**/*.ejs", '!./resources/ejs/**/_*.ejs'])
         .pipe(ejs())
         .pipe(rename({ extname: '.html' }))
         .pipe( gulp.dest( "./htdocs" ) );

@@ -1,6 +1,20 @@
 body{
-  opacity: 0.2;
-	display: flex;
+	opacity: 0.2;
 	align-content: center;
 	justify-content: space-between;
+	display: flex;
+}
+
+@media screen and (min-width: 768px) {
+	.test1 {
+		width: 576px;
+	}
+}
+   
+
+   
+@media screen and (min-width: 768px) {
+	.test2 {
+		width: 384px;
+	}
 }
