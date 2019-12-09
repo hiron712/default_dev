@@ -55,3 +55,9 @@ npm run gulp ejs
 ```
 npm run gulp babel
 ```
+
+## 変更を監視しタスクを実行
+
+```
+npm run gulp watch
+```

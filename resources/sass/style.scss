@@ -1,8 +1,10 @@
 body{
-	opacity: 0.2;
-	align-content: center;
-	justify-content: space-between;
-	display: flex;
+	margin: 0;
+	padding: 0;
+	//opacity: 1;
+	//align-content: center;
+	//justify-content: space-between;
+	//display: flex;
 }
 
 @media screen and (min-width: 768px) {
@@ -11,10 +13,24 @@ body{
 	}
 }
    
-
    
 @media screen and (min-width: 768px) {
 	.test2 {
 		width: 384px;
 	}
+}
+
+@import "header";
+
+main{
+	width: 100%
+}
+
+footer{
+	background-color: #cccccc;
+}
+
+h1{
+	padding: 0;
+	margin: 0;
 }

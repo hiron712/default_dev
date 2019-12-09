@@ -2,11 +2,13 @@ doctype html
 html(lang="ja")
   head
     meta(charset="utf-8")
-    title テストサイトd
+    title テストサイトss
     link(rel="stylesheet", href="assets/css/style.css")
     script(src="assets/js/script.min.js")
   body
-    header
-      div.header-inr
-        a.header-logo(href="")
-          h1 サイトメイ
+    - var sitename = "Pugインクルード"
+    include _header.pug
+
+  main コンテンツ
+
+  footer フッター
