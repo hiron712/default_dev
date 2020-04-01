@@ -1,6 +1,6 @@
 const gulp = require('gulp'); //タスクランナー
 
-const compass = require('gulp-compass'); //SCSS変換用
+const sass = require('gulp-sass');//SCSS変換用
 const stylus = require('gulp-stylus'); //Stylus変換用
 const pug = require("gulp-pug"); //Pug変換用
 const ejs = require("gulp-ejs"); //ejs変換用
@@ -34,14 +34,8 @@ const plugin = [
 --------------------------------------------------*/
 gulp.task('scss', function(){
     //ここからタスクの内容
-    return gulp.src('resources/sass/*.scss')
-        .pipe(compass({
-            style: 'compressed',
-            sourcemap: false,
-            comments: false,//コメントを残すか
-            css: 'htdocs/assets/css/',//吐き出すcssのフォルダ場所
-            sass: 'resources/sass/'//sassファイルの場所
-        }))
+    return gulp.src('resources/sass/**/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(postcss(plugin))
         .pipe(gulp.dest('htdocs/assets/css/'));
 });
