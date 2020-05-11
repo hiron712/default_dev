@@ -45,7 +45,7 @@ gulp.task('scss', function(){
 gulp.task('stylus', function() {
     return gulp.src(['resources/stylus/**/*.styl','!resources/stylus/**/_*.styl'])
         .pipe(stylus({
-            compress: true
+            compress: false
         }))
         .pipe(postcss(plugin))
         .pipe(gulp.dest('htdocs/assets/css/'));
