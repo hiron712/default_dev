@@ -1,0 +1,127 @@
+* {
+  -webkit-box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  -webkit-font-feature-settings: 'palt';
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  font-feature-settings: 'palt';
+  text-size-adjust: 100%;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button {
+  cursor: pointer;
+}
+label {
+  cursor: pointer;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+#header {
+  background-color: #eee;
+}
+#header .headerInr {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#header .head {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+#header .logo {
+  display: block;
+  width: 200px;
+  background-color: #ddd;
+}
+#header ul.sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.875rem;
+}
+#header ul.sub li a {
+  display: block;
+  padding: 10px;
+}
+#header nav ul {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+#header nav ul li a {
+  display: block;
+  padding: 20px;
+}
+#footer {
+  padding: 20px 3%;
+  background-color: #eee;
+}
+#footer .footerInr {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#footer ul {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #ddd;
+  font-size: 0.875rem;
+}
+#footer ul li {
+  padding: 2px 10px;
+  border-right: 1px solid #ddd;
+}
+#footer .copyright {
+  margin-top: 30px;
+  font-size: 0.75rem;
+  text-align: center;
+}
+#main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+}

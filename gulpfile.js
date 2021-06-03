@@ -43,7 +43,7 @@ gulp.task('scss', function(){
 /*-------------------------------------------------
 --------------------------------------------------*/
 gulp.task('stylus', function() {
-    return gulp.src(['resources/stylus/**/*.styl','!resources/stylus/**/_*.styl'])
+    return gulp.src(['htdocs/assets/stylus/**/*.styl','!htdocs/assets/stylus/**/_*.styl'])
         .pipe(stylus({
             compress: false
         }))
@@ -87,9 +87,9 @@ gulp.task( "ejs", function () {
 /*-------------------------------------------------
 --------------------------------------------------*/
 gulp.task('watch', function(){
-    gulp.watch( 'resources/sass/**/*.scss', gulp.task('scss'));
-    gulp.watch( 'resources/stylus/**/*.styl', gulp.task('stylus'));
-    gulp.watch( 'resources/pug/**/*.pug', gulp.task('pug'));
-    gulp.watch( 'resources/ejs/**/*.ejs', gulp.task('ejs'));
-    gulp.watch( 'resources/script/**/*.js', gulp.task('babel'));
+    // gulp.watch( 'resources/sass/**/*.scss', gulp.task('scss'));
+    gulp.watch( 'htdocs/assets/stylus/**/*.styl', gulp.task('stylus'));
+    // gulp.watch( 'resources/pug/**/*.pug', gulp.task('pug'));
+    // gulp.watch( 'resources/ejs/**/*.ejs', gulp.task('ejs'));
+    // gulp.watch( 'resources/script/**/*.js', gulp.task('babel'));
 });
