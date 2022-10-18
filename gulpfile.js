@@ -1,6 +1,7 @@
 const gulp = require('gulp'); //タスクランナー
 
-const sass = require('gulp-sass');//SCSS変換用
+// const sass = require('gulp-sass');//SCSS変換用
+const sass = require('gulp-dart-sass');//SCSS変換用
 const stylus = require('gulp-stylus'); //Stylus変換用
 const pug = require("gulp-pug"); //Pug変換用
 const ejs = require("gulp-ejs"); //ejs変換用
@@ -58,7 +59,11 @@ gulp.task('babel', function() {
     return browserify({
         entries: scriptFiles
     })
-        .transform(babelify, {presets: ['@babel/preset-env']})
+        .transform(babelify, {
+            global: true,
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
+        })
         .bundle()
         .pipe(source('script.min.js'))
         .pipe(buffer())
